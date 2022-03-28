@@ -6,8 +6,7 @@ Stream B!
 
 ## 1. Based on the above, a number of solutions have been proposed to solve this trilemma. Briefly describe the different scalability solutions and write pros and cons of each approach.
 
-- State Channels
-
+### **State Channels**
 ```
 State channels allow participants to transact x number of times off-chain while only submitting two on-chain transactions to the Ethereum network. This allows for extremely high transaction throughput.
 ```
@@ -21,7 +20,8 @@ State channels allow participants to transact x number of times off-chain while 
 
 https://ethereum.org/en/developers/docs/scaling/state-channels/
 
-- Sidechains
+
+### **Sidechains**
 
 ```
 A sidechain is a separate blockchain which runs in parallel to Ethereum Mainnet and operates independently. It has its own consensus algorithm
@@ -35,7 +35,7 @@ A sidechain is a separate blockchain which runs in parallel to Ethereum Mainnet 
 
 https://ethereum.org/en/developers/docs/scaling/sidechains/
 
-- Plasma
+### **Plasma**
 
 ```
 A plasma chain is a separate blockchain that is anchored to the main Ethereum chain, and uses fraud proofs to arbitrate disputes.
@@ -50,7 +50,7 @@ A plasma chain is a separate blockchain that is anchored to the main Ethereum ch
 
 https://ethereum.org/en/developers/docs/scaling/plasma/
 
-- Optimistic Rollups
+### **Optimistic Rollups**
 
 ```
 Optimistic rollups sit in parallel to the main Ethereum chain on layer 2. They can offer improvements in scalability because they don't do any computation by default. Instead, after a transaction, they propose the new state to Mainnet or "notarise" the transaction.
@@ -61,7 +61,7 @@ Optimistic rollups sit in parallel to the main Ethereum chain on layer 2. They c
 | Anything you can do on Ethereum layer 1, you can do with Optimistic rollups as it's EVM and Solidity compatible.                            | Long wait times for on-chain transaction due to potential fraud challenges. |
 | All transaction data is stored on the layer 1 chain, meaning it's secure and decentralized. An operator can influence transaction ordering. | An operator can influence transaction ordering.                             |
 
-- ZK Rollups
+### **ZK Rollups**
 
 ```
  ZK-rollups roll-up hundreds of transfers off-chain and generate a cryptographic proof. The ZK-rollup smart contract maintains the state of all transfers on layer 2, and this state can only be updated with a validity proof.
@@ -84,29 +84,30 @@ Data availability attacks, unlike fraud, are not uniquely attributable. We have 
 
 ## 2. One of the solutions that has been gaining a lot of traction lately is zkRollups. With the use of a diagram explain the key features of zkRollups. Argue for or against this solution highlighting its benefits or shortcomings with respect to other solutions proposed or in use.
 
-![RollupNC](https://camo.githubusercontent.com/c2ec3b58884b957eae522afd3c3436f1a0f8a5f2a25a78788d5cd256fa66e4aa/68747470733a2f2f692e696d6775722e636f6d2f5a5856733849502e706e67)
+![RollupNC](https://camo.githubusercontent.com/c2ec3b58884b957eae522afd3c3436f1a0f8a5f2a25a78788d5cd256fa66e4aa/68747470733a2f2f692e696d6775722e636f6d2f5a5856733849502e706e67
+)
 https://github.com/rollupnc/RollupNC
 
 > In zkRollups you can generate succinct proofs for large computations, which are much faster and computationally easier to verify than they are to compute. This provides a way to "compress" expensive operations by computing them off-chain, and then only verifying the proof on-chain.
 
-I think zkRollups is the most promising solution.
-One of the reason is that it utilizes zero knowledge proof technology.
-ZKP has large potential for solving key problems of blockchain.
-For example, "recursive proofs" which is the act of verifying another proof inside a proof will be able to improve scalability and privacy.
+I think zkRollups is the most promising solution.  
+One of the reason is that it utilizes zero knowledge proof technology.  
+ZKP has large potential for solving key problems of blockchain.  
+For example, "recursive proofs" which is the act of verifying another proof inside a proof will be able to improve scalability and privacy.  
 Among current solutions zkRollups is the best solution which can fully utilize these ZK technology.
 
 ## 3. Ethereum is a state machine that moves forward with each new block. At any instance, it provides a complete state of Ethereum consisting of the data related to all accounts and smart contracts running on the EVM. The state of Ethereum modifies whenever a transaction is added to the block by changing the balances of accounts. Based on the massive adoption of Ethereum across the globe, this state has become a bottleneck for validators trying to sync with the network as well as validate transactions. Briefly describe the concept of stateless client, and how they help resolve this issue? Explain how Zero-Knowledge improves on the concept of stateless client?
 
 The concept of stateless client is to enable nodes to validate a block without storing the Ethereum state. The key mechanism to enable the stateless client is a block witness which will validate a given state change against the previous state. Block witnesses will allow stateless nodes to store only the state root instead of the entire merkle patricia tree. This mechanism is similar to zkRollups in both utilizing ZK technologies for validating state.
 
-.prettierignore# Q2 Roll the TX up
+# Q2 Roll the TX up
 
 ## 3. ZKSync 2.0 was recently launched to testnet and has introduced ZKPorter. Argue for or against ZKPorter, highlighting the advantages or shortcomings in this new protocol.
 
-ZKPorter increases scalability because it uses off-chain data availability.
+ZKPorter increases scalability because it uses off-chain data availability.  
 The data availability of ZKPorter is secured by the so-called Guardians who participate in proof of stake with the ZKSync token.
-It looks less secure but still more secure than PoS in other systems because Guardians can not steal funds. They can only halt block production.
-ZKPorter will be fully interoperable with ZKSync's zkRollups so it doesn't sacrifice user convenience and users can choose either option considering security and gas cost.
+It looks less secure but still more secure than PoS in other systems because Guardians can not steal funds. They can only halt block production.  
+ZKPorter will be fully interoperable with ZKSync's zkRollups so it doesn't sacrifice user convenience and users can choose either option considering security and gas cost.  
 
 # Q3 Recursive SNARK’s
 
@@ -140,7 +141,40 @@ https://minaprotocol.com/ko/blog/kimchi-the-latest-update-to-minas-proof-system
 
 # Q4 Final Project Ideas
 
+### **ZK NFT ticket verification**
+
+It enables users to prove their NFT ownership without revealing their address.
+I think anonymity is more important in real events so NFT ticketing service needs ZKP.
+
+|pros |cons |
+|---- |---- |
+|Expand Web3 into real world use case.|Need centralized server.|
+|Very little real use case for now.|
+
+### **ZK Survey**
+Some events drop NFT for Proof Of Physical Attendance(POPA).
+Basic idea is the same above, this system can prove their POPA NFT ownership without revealing their address and send feedback anonymously.
+When collecting feedback it's better to be anonymous.
+
+
+|pros |cons |
+|---- |---- |
+|Expand Web3 into real world use case.|Need centralized server.|
+||Very little real use case for now.|
+
+### **ZK Random Chat**
+
+For example, recruiting 100 participants and randomly matching them, for a certain period they anonimously chat with mathcing partner.
+participants have to pay participation fee for a relayer server which assigns partner and relays transactions.
+
+|pros |cons |
+|---- |---- |
+|It looks interesting if participants are only some NFT holders.|Need trustful server.|
+
+I feel it's very diffucult to make ZK dApps trustless and full onchain😥
+
 # Question 5: Thinking in ZK
+Question for Mina.
 
 I'm very interested in the concept of "A Private Gateway between the Real World and Crypto".  
 When I tried to utilize ZKP for dApps, I found there are difficulties in interacting with offchain world.  
